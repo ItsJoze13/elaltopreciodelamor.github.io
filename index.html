@@ -12,6 +12,7 @@ margin:0;
 font-family:Georgia, serif;
 background:#111;
 color:white;
+line-height:1.6;
 }
 
 /* NAV */
@@ -28,6 +29,7 @@ justify-content:center;
 gap:40px;
 margin:0;
 padding:0;
+flex-wrap:wrap;
 }
 
 nav a{
@@ -81,6 +83,11 @@ background:#1c1c1c;
 padding:30px;
 width:250px;
 border-radius:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .card h3{
@@ -116,10 +123,10 @@ padding:20px;
 
 <nav>
 <ul>
-<li><a href="El alto precio del amor.html">Inicio</a></li>
-<li><a href="Sobre-Nosotros.html">Conoce más sobre nosotros</a></li>
-<li><a href="Entradas.html">Compra entradas</a></li>
-<li><a href="Guion.html">Conoce nuestro guion</a></li>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+<li><a href="entradas.html">Entradas</a></li>
+<li><a href="guion.html">Guion</a></li>
 </ul>
 </nav>
 
@@ -128,7 +135,7 @@ padding:20px;
 <h1>El Alto Precio del Amor</h1>
 
 <p>
-Una obra teatral ambientada en París en el año 1890
+Una obra teatral ambientada en París en el año 1890.
 </p>
 
 </header>
@@ -145,11 +152,11 @@ que cambiarán el destino de una joven llamada Charlotte.
 <div class="tarjetas">
 
 <div class="card">
-<h3>Sobre Nosotros</h3>
+<h3>Sobre nosotros</h3>
 <p>
-Conoce el equipo de actores y creadores de esta obra.
+Conoce al equipo de actores y creadores de esta obra.
 </p>
-<a class="boton" href="Sobre-Nosotros.html">Ver más</a>
+<a class="boton" href="sobre-nosotros.html">Ver más</a>
 </div>
 
 <div class="card">
@@ -157,15 +164,15 @@ Conoce el equipo de actores y creadores de esta obra.
 <p>
 Compra tus entradas y disfruta de la obra en vivo.
 </p>
-<a class="boton" href="Entradas.html">Comprar</a>
+<a class="boton" href="entradas.html">Comprar</a>
 </div>
 
 <div class="card">
-<h3>Guión</h3>
+<h3>Guion</h3>
 <p>
-Lee parte del guión y descubre la historia.
+Lee parte del guion y descubre la historia.
 </p>
-<a class="boton" href="Guion.html">Leer</a>
+<a class="boton" href="guion.html">Leer</a>
 </div>
 
 </div>
@@ -174,7 +181,7 @@ Lee parte del guión y descubre la historia.
 
 <footer>
 
-<p>© 2026 Obra de Teatro - El Alto Precio del Amor</p>
+<p>© 2026 Obra de teatro — El Alto Precio del Amor</p>
 
 </footer>
 
