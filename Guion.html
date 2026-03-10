@@ -1,132 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
-<title>Guion: El Alto Precio del Amor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Guion | El Alto Precio del Amor</title>
 
 <style>
 
 body{
-font-family:Georgia, serif;
-background:#111;
-color:white;
 margin:0;
-line-height:1.7;
+font-family:Georgia, serif;
+background:#121212;
+color:white;
+line-height:1.6;
 }
 
-header{
-background:#7a0014;
-padding:30px;
-text-align:center;
-border-bottom:4px solid #cf0627;
+/* NAV */
+
+nav{
+background:#000;
+padding:15px;
 }
 
-.creditos{
-font-size:0.95em;
-color:#bbb;
-margin-top:10px;
+nav ul{
+list-style:none;
+display:flex;
+justify-content:center;
+gap:40px;
+margin:0;
+padding:0;
+flex-wrap:wrap;
 }
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#ff9eb1;
+}
+
+/* CONTENIDO */
 
 section{
-max-width:950px;
+max-width:900px;
 margin:auto;
-padding:40px;
+padding:50px 20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:40px;
 }
 
 .acto{
+margin-bottom:60px;
 background:#1c1c1c;
 padding:25px;
-margin-top:30px;
 border-radius:10px;
-border-left:5px solid #cf0627;
 }
 
-h2{
-color:#cf0627;
-border-bottom:1px solid #333;
-padding-bottom:10px;
+.acto h2{
+color:#ff9eb1;
+margin-top:0;
 }
 
 .escena{
 font-style:italic;
-color:#aaa;
-margin-bottom:15px;
+color:#ccc;
 display:block;
+margin-bottom:15px;
 }
 
 .personaje{
-color:#ff9eb1;
 font-weight:bold;
-text-transform:uppercase;
+color:#ff9eb1;
 }
 
 .acotacion{
-color:#888;
 font-style:italic;
+color:#bbb;
 }
 
-.lista{
-color:#ddd;
-margin-top:10px;
-}
+/* FOOTER */
 
-button{
-position:absolute;
-top:20px;
-left:20px;
-background:#cf0627;
-color:white;
-border:none;
-cursor:pointer;
-border-radius:15px;
-padding:10px 20px;
-transition:0.3s;
-}
-
-button:hover{
-background:#ff002b;
+footer{
+background:#000;
+text-align:center;
+padding:20px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<button onclick="window.location.href='index.html'">Inicio</button>
-
-<header>
-
-<h1>El Alto Precio del Amor</h1>
-
-<div class="creditos">
-
-<p><b>Autor:</b> María Isabel Carrión</p>
-
-<p><b>Guionistas:</b> José Augusto Crespo y Valentina Bautista</p>
-
-<p><b>Ambientación:</b> París, 1890</p>
-
-</div>
-
-</header>
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+<li><a href="entradas.html">Entradas</a></li>
+<li><a href="guion.html">Guion</a></li>
+</ul>
+</nav>
 
 <section>
 
-<h2>Actores</h2>
-
-<ul class="lista">
-<li>Charlotte — Sophie Michelet</li>
-<li>David — Martin Soto</li>
-<li>Erick — José Antonio Zurita</li>
-<li>Padre Víctor — Joaquín Mogollón</li>
-<li>Madre Antonia — Santina Padilla</li>
-<li>Tía Alicia — Isabel María Rosales</li>
-<li>Amigo Mateo — José Augusto Crespo</li>
-<li>Sirvientas — Marisa “Anita”, Valen “Mia”</li>
-<li>Mayordomo — Nico G</li>
-<li>Chofer — Javier</li>
-</ul>
+<h1>Guion — El Alto Precio del Amor</h1>
 
 <!-- ACTO 1 -->
 
@@ -134,36 +118,15 @@ background:#ff002b;
 
 <h2>Acto 1</h2>
 
-<span class="escena">
-París, 1890. Un elegante comedor dentro de una gran mansión.
-</span>
+<span class="escena">Orfanato en París, año 1890.</span>
 
-<p class="acotacion">
-La familia cena mientras los sirvientes circulan discretamente.
-</p>
+<p><span class="personaje">Charlotte:</span> ¿Crees que algún día alguien vendrá a adoptarme?</p>
 
-<p><span class="personaje">Víctor:</span> Charlotte, mañana tu madre y yo deberemos partir al famoso banquete que el presidente ha organizado. Tendrás que quedarte en casa con las sirvientas.</p>
+<p><span class="personaje">Erick:</span> Claro que sí. Eres la persona más buena que conozco.</p>
 
-<p><span class="personaje">Charlotte:</span> <span class="acotacion">(molesta)</span> ¿No podré asistir al banquete?</p>
-
-<p><span class="personaje">Antonia:</span> <span class="acotacion">(imponente)</span> No, Charlotte. Ese evento es solo para adultos. Te quedarás en casa y no quiero discutirlo.</p>
-
-<p><span class="personaje">Charlotte:</span> Está bien. Que disfruten su banquete. <span class="acotacion">(Se levanta y sale del comedor)</span></p>
-
-<p><span class="personaje">Víctor:</span> No te preocupes, Antonia. Charlotte es así, ya se le pasará.</p>
-
-<hr>
-
-<span class="escena">Cuarto de Charlotte.</span>
-
-<p class="acotacion">
-Un cuarto enorme lleno de flores, tonos rosados y joyas.
-</p>
-
-<p><span class="personaje">Charlotte:</span> <span class="acotacion">(soñadora)</span> Cuando me case, mi boda será perfecta… y seré feliz para siempre.</p>
+<p><span class="personaje">Charlotte:</span> A veces sueño con una familia… una casa… y una boda hermosa.</p>
 
 </div>
-
 
 <!-- ACTO 2 -->
 
@@ -171,40 +134,15 @@ Un cuarto enorme lleno de flores, tonos rosados y joyas.
 
 <h2>Acto 2</h2>
 
-<span class="escena">
-Afuera de la mansión — madrugada.
-</span>
+<span class="escena">Patio del orfanato.</span>
 
-<p class="acotacion">
-Los padres bajan las maletas mientras el chofer espera.
-</p>
+<p><span class="personaje">Erick:</span> Cuando seamos grandes podríamos viajar.</p>
 
-<p><span class="personaje">Víctor:</span> Anita, por favor ve a buscar a Charlotte para que pueda despedirse.</p>
+<p><span class="personaje">Charlotte:</span> ¿Viajar?</p>
 
-<p><span class="personaje">Anita:</span> Claro, señor.</p>
-
-<p class="acotacion">
-Anita sube las escaleras y toca la puerta.
-</p>
-
-<p><span class="personaje">Anita:</span> Señorita Charlotte, sus padres desean que baje para despedirse.</p>
-
-<p><span class="personaje">Charlotte:</span> Diles… que les mando mis despedidas.</p>
-
-<p><span class="personaje">Anita:</span> Como usted diga.</p>
-
-<p class="acotacion">
-Anita baja y comunica el mensaje.
-</p>
-
-<p><span class="personaje">Anita:</span> Señor Víctor, la señorita Charlotte les envía sus despedidas.</p>
-
-<p class="acotacion">
-El carruaje parte. Charlotte observa desde la ventana con tristeza.
-</p>
+<p><span class="personaje">Erick:</span> Sí, ver el mundo juntos.</p>
 
 </div>
-
 
 <!-- ACTO 3 -->
 
@@ -212,24 +150,13 @@ El carruaje parte. Charlotte observa desde la ventana con tristeza.
 
 <h2>Acto 3</h2>
 
-<span class="escena">
-Noche. Cuarto de Charlotte.
-</span>
+<span class="escena">Oficina del orfanato.</span>
 
-<p class="acotacion">
-Charlotte está preocupada porque sus padres no han regresado.
-</p>
+<p><span class="personaje">Instructora:</span> Charlotte, hay una señora que quiere conocerte.</p>
 
-<p><span class="personaje">Mia:</span> Señorita Charlotte... sus padres tuvieron un terrible accidente y lamentablemente han fallecido. Lo siento mucho.</p>
-
-<p><span class="personaje">Mia:</span> Sus padres no firmaron los papeles necesarios. Tendrán que llevarla a un orfanato.</p>
-
-<p><span class="personaje">Charlotte:</span> ¿Cómo pueden hacerme esto? Voy a ser pobre… ¡ni siquiera me pude despedir!</p>
-
-<p><span class="personaje">Mia:</span> Mañana será el funeral y luego te llevarán al orfanato.</p>
+<p><span class="personaje">Charlotte:</span> ¿De verdad?</p>
 
 </div>
-
 
 <!-- ACTO 4 -->
 
@@ -237,26 +164,15 @@ Charlotte está preocupada porque sus padres no han regresado.
 
 <h2>Acto 4</h2>
 
-<span class="escena">
-Frente a la tumba de sus padres. Día nublado.
-</span>
+<span class="escena">Sala del orfanato.</span>
 
-<p><span class="personaje">Charlotte:</span> Adiós… siempre los tendré en mi corazón.</p>
+<p><span class="personaje">Tía Alicia:</span> Hola querida. Soy tu tía.</p>
 
-<p><span class="personaje">Charlotte:</span> Ojalá estuvieran aquí conmigo. No sé qué hacer sin ustedes.</p>
+<p><span class="personaje">Charlotte:</span> ¿Mi tía?</p>
 
-<p class="acotacion">
-Charlotte deja una rosa roja sobre la tumba.
-</p>
-
-<p class="acotacion">
-Dos hombres aparecen y la toman a la fuerza.
-</p>
-
-<p><span class="personaje">Charlotte:</span> ¡Suéltenme! ¡No me van a llevar a ese lugar!</p>
+<p><span class="personaje">Alicia:</span> Sí. Y quiero llevarte a vivir conmigo.</p>
 
 </div>
-
 
 <!-- ACTO 5 -->
 
@@ -264,59 +180,233 @@ Dos hombres aparecen y la toman a la fuerza.
 
 <h2>Acto 5</h2>
 
-<span class="escena">
-Orfanato gris y silencioso.
-</span>
+<span class="escena">Jardín del orfanato.</span>
 
-<p><span class="personaje">Instructora:</span> Bienvenida. Te estábamos esperando.</p>
+<p><span class="personaje">Charlotte:</span> Erick… me voy a vivir con mi tía.</p>
 
-<p class="acotacion">
-Los niños observan a Charlotte.
-</p>
+<p><span class="personaje">Erick:</span> Me alegro por ti.</p>
 
-<p><span class="personaje">Instructora:</span> Ella será su nueva compañera: Charlotte Laurent.</p>
-
-<p><span class="personaje">Charlotte:</span> No, gracias.</p>
-
-<p class="acotacion">
-Charlotte se queda sola llorando. Erick pasa caminando y pisa accidentalmente su mano.
-</p>
-
-<p><span class="personaje">Charlotte:</span> ¡Auch! Me pisaste la mano.</p>
-
-<p><span class="personaje">Erick:</span> Lo siento muchísimo, estaba distraído.</p>
-
-<p><span class="personaje">Charlotte:</span> Está bien… ya no importa.</p>
-
-<p><span class="personaje">Erick:</span> ¿Estabas llorando?</p>
-
-<p><span class="personaje">Charlotte:</span> No me acostumbro a este lugar.</p>
-
-<p><span class="personaje">Erick:</span> Yo pensaba lo mismo cuando llegué.</p>
+<p><span class="personaje">Charlotte:</span> Pero no quiero perder nuestra amistad.</p>
 
 </div>
 
-
-<!-- FINAL -->
+<!-- ACTO 6 -->
 
 <div class="acto">
 
-<h2>Acto Final</h2>
+<h2>Acto 6</h2>
 
-<span class="escena">
-Granja tranquila.
-</span>
+<span class="escena">Patio del orfanato.</span>
 
-<p class="acotacion">
-Erick trabaja solo mirando el horizonte.
-</p>
+<p><span class="personaje">Instructora:</span> Erick, alguien quiere adoptarte.</p>
 
-<p><span class="personaje">Erick:</span> Nunca creí que el amor tendría un precio tan alto.</p>
+<p><span class="personaje">Erick:</span> ¿Adoptarme?</p>
+
+<p><span class="personaje">Instructora:</span> Son campesinos. Te llevarán a vivir a una granja.</p>
 
 </div>
 
+<!-- ACTO 7 -->
+
+<div class="acto">
+
+<h2>Acto 7</h2>
+
+<span class="escena">Entrada del orfanato.</span>
+
+<p><span class="personaje">Erick:</span> Charlotte, nunca te olvidaré.</p>
+
+<p><span class="personaje">Charlotte:</span> Yo tampoco.</p>
+
+<p class="acotacion">Erick le entrega un pequeño reloj.</p>
+
+</div>
+
+<!-- ACTO 8 -->
+
+<div class="acto">
+
+<h2>Acto 8</h2>
+
+<span class="escena">Mansión de la tía Alicia.</span>
+
+<p><span class="personaje">Alicia:</span> Esta noche hay un baile en la ciudad.</p>
+
+<p><span class="personaje">Charlotte:</span> Nunca he ido a uno.</p>
+
+</div>
+
+<!-- ACTO 9 -->
+
+<div class="acto">
+
+<h2>Acto 9</h2>
+
+<span class="escena">Gran salón de baile.</span>
+
+<p><span class="personaje">David:</span> Buenas noches. Soy David Beaumont.</p>
+
+<p><span class="personaje">David:</span> ¿Me concede este baile?</p>
+
+<p><span class="personaje">Charlotte:</span> Claro.</p>
+
+</div>
+
+<!-- ACTO 10 -->
+
+<div class="acto">
+
+<h2>Acto 10</h2>
+
+<span class="escena">Mansión.</span>
+
+<p><span class="personaje">Alicia:</span> David es un excelente partido.</p>
+
+<p><span class="personaje">Charlotte:</span> Apenas lo conozco.</p>
+
+</div>
+
+<!-- ACTO 11 -->
+
+<div class="acto">
+
+<h2>Acto 11</h2>
+
+<span class="escena">Iglesia.</span>
+
+<p><span class="personaje">Sacerdote:</span> ¿Aceptas a David Beaumont como tu esposo?</p>
+
+<p><span class="personaje">Charlotte:</span> Sí… acepto.</p>
+
+</div>
+
+<!-- ACTO 12 -->
+
+<div class="acto">
+
+<h2>Acto 12</h2>
+
+<span class="escena">Granja.</span>
+
+<p><span class="personaje">Mateo:</span> Erick, en la ciudad habrá un baile.</p>
+
+<p><span class="personaje">Erick:</span> Está bien, vamos.</p>
+
+</div>
+
+<!-- ACTO 13 -->
+
+<div class="acto">
+
+<h2>Acto 13</h2>
+
+<span class="escena">Salón de baile.</span>
+
+<p><span class="personaje">Erick:</span> No puede ser… Charlotte.</p>
+
+</div>
+
+<!-- ACTO 14 -->
+
+<div class="acto">
+
+<h2>Acto 14</h2>
+
+<span class="escena">Patio del baile.</span>
+
+<p><span class="personaje">Charlotte:</span> Erick…</p>
+
+<p><span class="personaje">Erick:</span> Pensé que nunca volvería a verte.</p>
+
+</div>
+
+<!-- ACTO 15 -->
+
+<div class="acto">
+
+<h2>Acto 15</h2>
+
+<span class="escena">Parque.</span>
+
+<p><span class="personaje">Charlotte:</span> A veces todavía pienso en ti.</p>
+
+<p><span class="personaje">Erick:</span> Yo nunca dejé de hacerlo.</p>
+
+</div>
+
+<!-- ACTO 16 -->
+
+<div class="acto">
+
+<h2>Acto 16</h2>
+
+<span class="escena">El mismo parque.</span>
+
+<p><span class="personaje">Erick:</span> Este lugar es perfecto para hablar.</p>
+
+</div>
+
+<!-- ACTO 17 -->
+
+<div class="acto">
+
+<h2>Acto 17</h2>
+
+<span class="escena">Varias semanas después.</span>
+
+<p><span class="personaje">Erick:</span> ¿Y si escapáramos?</p>
+
+<p><span class="personaje">Charlotte:</span> No lo sé…</p>
+
+</div>
+
+<!-- ACTO 18 -->
+
+<div class="acto">
+
+<h2>Acto 18</h2>
+
+<span class="escena">Casa de Charlotte.</span>
+
+<p class="acotacion">David encuentra una carta.</p>
+
+<p><span class="personaje">David:</span> ¿Qué significa esto?</p>
+
+</div>
+
+<!-- ACTO 19 -->
+
+<div class="acto">
+
+<h2>Acto 19</h2>
+
+<span class="escena">Estación de tren.</span>
+
+<p><span class="personaje">David:</span> ¡Aléjate de ella!</p>
+
+<p class="acotacion">Se escucha un disparo.</p>
+
+</div>
+
+<!-- ACTO 20 -->
+
+<div class="acto">
+
+<h2>Acto 20</h2>
+
+<span class="escena">Granja.</span>
+
+<p><span class="personaje">Erick:</span> Nunca imaginé que el amor tendría un precio tan alto.</p>
+
+</div>
 
 </section>
+
+<footer>
+
+<p>© 2026 Obra de teatro — El Alto Precio del Amor</p>
+
+</footer>
 
 </body>
 </html>
