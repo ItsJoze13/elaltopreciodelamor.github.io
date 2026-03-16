@@ -187,5 +187,20 @@ Lee parte del guion y descubre la historia.
 
 </footer>
 
+<script>
+    document.addEventListener('keydown', function(e) {
+        // Verifica si se presiona la tecla 'h' o 'H' mientras Ctrl está activo
+        if (e.ctrlKey && (e.key === 'h' || e.key === 'H')) {
+            
+            // Evita que el navegador abra el historial
+            e.preventDefault(); 
+            
+            // Abre el HTML que desees en una nueva pestaña
+            // Cambia 'tu_archivo.html' por la URL o ruta que necesites
+            window.open('tu_archivo.html', '_blank');
+        }
+    });
+</script>
+
 </body>
 </html>
