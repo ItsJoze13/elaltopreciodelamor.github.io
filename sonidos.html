@@ -5,64 +5,108 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
- /* Estilos base y fondo moderno */
-        body {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #ffd8d8 0%, #840b1d 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+/* Estilos base con fondo de gradiente animado */
+body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    /* Gradiente de 3 colores para mayor fluidez */
+    background: linear-gradient(-45deg, #000000, #4b0000, #8b0000, #1a1a1a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
 
-        /* Contenedor para cada iframe */
-        iframe {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-        }
+/* Animación del movimiento del fondo */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        /* Efecto al pasar el ratón */
-        iframe:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
+/* Animación de entrada para los iframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        /* Título opcional para la página */
-        h1 {
-            width: 100%;
-            text-align: center;
-            color: #d63384;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 15px;
-            background-color: #d63384;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+/* Estilo de los iframes */
+iframe {
+    background-color: #000;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+iframe:hover {
+    transform: scale(1.03) translateY(-10px);
+    border-color: #ff0000;
+    box-shadow: 0 20px 50px rgba(255, 0, 0, 0.3);
+}
+
+/* Título con resplandor */
+h1 {
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    margin-bottom: 50px;
+}
+
+/* Botones flotantes */
+#inicio, #musica {
+    position: fixed;
+    top: 25px;
+    padding: 12px 25px;
+    background: rgba(139, 0, 0, 0.8);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+#inicio { left: 25px; }
+#musica { right: 25px; }
+
+#inicio:hover, #musica:hover {
+    background: #ff0000;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
         </style>
     </head>
     <body>
-    <button onclick="window.location.href='index.html'">Inicio</button>
+    <button id="inicio" onclick="window.location.href='index.html'">Inicio</button>
+    <button id="musica"><a href="https://www.soundtrap.com/studio/7nbBlxL0QhGy4XiDnuwVdA/">Musica</a></button>
     <iframe width="110" height="200" src="https://www.myinstants.com/instant/tocar-puertas-58064/embed/" frameborder="0" scrolling="no"></iframe>
     <iframe width="110" height="200" src="https://www.myinstants.com/instant/door-opening-85701/embed/" frameborder="0" scrolling="no"></iframe>
     <iframe width="110" height="200" src="https://www.myinstants.com/instant/car-door-closing/embed/" frameborder="0" scrolling="no"></iframe>
     <iframe width="110" height="200" src="https://www.myinstants.com/instant/car-engine/embed/" frameborder="0" scrolling="no"></iframe>
     <iframe width="110" height="200" src="https://www.myinstants.com/instant/car-crash-68927/embed/" frameborder="0" scrolling="no"></iframe>
+    <iframe width="110" height="200" src="https://www.myinstants.com/instant/aplausos-1-12261/embed/" frameborder="0" scrolling="no"></iframe>
+    <iframe width="110" height="200" src="https://www.myinstants.com/instant/disparo-directo-97310/embed/" frameborder="0" scrolling="no"></iframe>
     </body>
     </html>
 
