@@ -2,129 +2,182 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sobre Nosotros</title>
-
+<link rel="icon" type="image/png" href="logo.png">
 <style>
-body{
-font-family:Georgia, serif;
-background:#111;
-color:white;
-margin:0;
-line-height:1.6;
+/* RESET */
+* {
+    box-sizing: border-box;
 }
 
-header{
-background:#7a0014;
-padding:30px;
-text-align:center;
+/* BODY */
+body {
+    font-family: Georgia, serif;
+    background: #111;
+    color: white;
+    margin: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    animation: fadePage .6s ease;
 }
 
-section{
-max-width:900px;
-margin:auto;
-padding:40px;
+/* HEADER */
+header {
+    background: #7a0014;
+    padding: 30px;
+    text-align: center;
+    animation: slideDown .6s ease;
 }
 
-h2{
-border-bottom:2px solid #7a0014;
-padding-bottom:10px;
-margin-top:40px;
+header h1 {
+    margin: 0;
+    font-size: 34px;
 }
 
-button{
-position:absolute;
-top:20px;
-left:20px;
-background:#cf0627;
-color:white;
-border:none;
-cursor:pointer;
-border-radius:15px;
-padding:10px 20px;
-font-size:14px;
+/* BOTON INICIO */
+button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #cf0627;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
-button:hover{
-opacity:0.9;
+button:hover {
+    background: #e1092d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,.5);
 }
 
-ul{
-margin-top:10px;
+/* CONTENIDO */
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    animation: fadeUp .7s ease;
 }
 
+/* TITULOS */
+h2 {
+    border-bottom: 2px solid #7a0014;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    animation: fadeUp .8s ease;
+}
+
+/* LISTAS */
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 6px;
+    transition: transform .15s ease, color .15s ease;
+}
+
+/* Clase para los otros nombres (Rosita) */
+.nombre-rosa:hover {
+    transform: translateX(4px);
+    color: #ff9eb1;
+}
+
+/* ELEMENTO ESPECÍFICO #D (Amarillo) */
+#d {
+    font-size: 20px;
+    display: block; /* Para que ocupe su propia línea y el transform sea limpio */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#d:hover {
+    color: #f5e750;
+    transform: translateX(4px);
+}
+
+/* RESPONSIVE */
+@media (max-width:700px) {
+    button {
+        position: static;
+        margin: 20px;
+    }
+    section {
+        padding: 30px 20px;
+    }
+}
+
+/* ANIMACIONES */
+@keyframes fadePage { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideDown { from { transform: translateY(-40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 </style>
-
 </head>
 
 <body>
 
-<button onclick="window.location.href='index.html'">← Inicio</button>
+<button onclick="window.location.href='index.html'">Inicio</button>
 
 <header>
-<h1>Sobre Nosotros</h1>
+    <h1>Sobre Nosotros</h1>
 </header>
 
 <section>
+    <h2>Nuestra obra</h2>
+    <p>Somos un grupo de actores que presenta la obra <b>El Alto Precio del Amor</b>, una historia ambientada en París en el año 1890.</p>
+    <p>La obra muestra la vida de Charlotte, una joven que sueña con el amor perfecto y una boda ideal, pero descubrirá que el amor puede tener un precio muy alto.</p>
 
-<h2>Nuestra obra</h2>
+    <h2>Equipo</h2>
+    <ul>
+        <li id="d">Desarrollador Web: José Antonio Zurita</li>
+    </ul>
 
-<p>
-Somos un grupo de actores que presenta la obra
-<b>El Alto Precio del Amor</b>, una historia ambientada
-en París en el año 1890.
-</p>
+    <ul>
+        <li class="nombre-rosa">Autor: María Isabel Carrión</li>
+        <li class="nombre-rosa">Guionistas: José Augusto Crespo, Valentina Bautista y José Antonio Zurita</li>
+    </ul>
 
-<p>
-La obra muestra la vida de Charlotte, una joven que sueña
-con el amor perfecto y una boda ideal, pero descubrirá
-que el amor puede tener un precio muy alto.
-</p>
+    <h2>Actores</h2>
+    <ul>
+        <li class="nombre-rosa">Charlotte — Sophie Michelet</li>
+        <li class="nombre-rosa">David — Martin Soto</li>
+        <li class="nombre-rosa">Erick — José Antonio Zurita</li>
+        <li class="nombre-rosa">Padre Víctor — Joaquín Mogollón</li>
+        <li class="nombre-rosa">Madre Antonia — Santina Padilla</li>
+        <li class="nombre-rosa">Tía Alicia — Isabel María Rosales</li>
+        <li class="nombre-rosa">Amigo Augusto — José Augusto Crespo</li>
+        <li class="nombre-rosa">Sirvientas — Marisa “Anita”, Valen “Mia”</li>
+        <li class="nombre-rosa">Mayordomo — Nicolas Grigaliunas</li>
+        <li class="nombre-rosa">Chofer — Javier Arcos</li>
+        <li class="nombre-rosa">Instructora — María Paula Velasteguí</li>
+        <li class="nombre-rosa">Campesino — Joaquin Vargas</li>
+    </ul>
 
-<h2>Equipo</h2>
+    <h2>Sonido y luces</h2>
+    <ul>
+        <li class="nombre-rosa">Juan Esteban Vallejos</li>
+        <li class="nombre-rosa">Nicolás Grigaliunas</li>
+    </ul>
 
-<ul>
-<li>Autor: María Isabel Carrión</li>
-<li>Guionistas: José Augusto Crespo, Valentina Bautista y José Antonio Zurita</li>
-</ul>
+    <h2>Escenografía</h2>
+    <ul>
+        <li class="nombre-rosa">Joaquín Vargas</li>
+        <li class="nombre-rosa">Javier Arcos</li>
+        <li class="nombre-rosa">Isabel Rosales</li>
+    </ul>
 
-<h2>Actores</h2>
-
-<ul>
-<li>Charlotte — Sophie Michelet</li>
-<li>David — Martin Soto</li>
-<li>Erick — José Antonio Zurita</li>
-<li>Padre Víctor — Joaquín Mogollón</li>
-<li>Madre Antonia — Santina Padilla</li>
-<li>Tía Alicia — Isabel María Rosales</li>
-<li>Amigo Augusto — José Augusto Crespo</li>
-<li>Sirvientas — Marisa “Anita”, Valen “Mia”</li>
-<li>Mayordomo — Nicolas Grigaliunas</li>
-<li>Chofer — Javier Arcos</li>
-<li>Instructora — María Paula Velasteguí</li>
-<li>Campesino — Joaquin Vargas</li>
-</ul>
-
-<h2>Sonido y luces</h2>
-<ul>
-<li>Juan Esteban Vallejos</li>
-<li>Nicolás Grigaliunas</li> 
-</ul>
-
-<h2>Escenografía</h2>
-<ul>
-<li>Joaquín Vargas</li>
-<li>Javier Arcos</li>
-<li>Isabel Rosales</li>
-</ul>
-
-<h2>Vestuario, maquillaje y peinado</h2>
-<ul>
-<li>Juliana Almeida</li>
-<li>Mary Medina</li>
-<li>María Paula Velasteguí</li>
-<li>Valeria Piedra Carvajal</li> 
-</ul>
-
+    <h2>Vestuario, maquillaje y peinado</h2>
+    <ul>
+        <li class="nombre-rosa">Juliana Almeida</li>
+        <li class="nombre-rosa">Mary Medina</li>
+        <li class="nombre-rosa">María Paula Velasteguí</li>
+        <li class="nombre-rosa">Valeria Piedra Carvajal</li>
+    </ul>
 </section>
 
 </body>

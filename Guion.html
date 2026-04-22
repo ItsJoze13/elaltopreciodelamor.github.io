@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Guion | El Alto Precio del Amor</title>
-
+<title>El Alto Precio del Amor | Guion</title>
+<link rel="icon" type="image/png" href="logo.png">
 <style>
+/* RESET Y BASE */
+*,
+*::before,
+*::after{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 margin:0;
 font-family:Georgia, serif;
-background:#121212;
+background:#111;
 color:white;
 line-height:1.6;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
 }
 
 /* NAV */
-
 nav{
 background:#000;
-padding:15px;
+padding:15px 20px;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 6px 20px rgba(0,0,0,.35);
+backdrop-filter:blur(4px);
 }
 
 nav ul{
 list-style:none;
 display:flex;
 justify-content:center;
+align-items:center;
 gap:40px;
 margin:0;
 padding:0;
@@ -38,42 +53,129 @@ nav a{
 text-decoration:none;
 color:white;
 font-weight:bold;
+transition:color .25s ease, transform .25s ease;
+cursor:pointer;
+position:relative;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:100%;
+height:2px;
+background:#ff9eb1;
+transform:scaleX(0);
+transform-origin:left;
+transition:transform .25s ease;
 }
 
 nav a:hover{
 color:#ff9eb1;
+transform:translateY(-1px);
 }
 
-/* CONTENIDO */
-
-section{
-max-width:900px;
-margin:auto;
-padding:50px 20px;
+nav a:hover::after{
+transform:scaleX(1);
 }
 
-h1{
+nav a:focus{
+outline:2px solid #ff9eb1;
+outline-offset:3px;
+}
+
+/* HERO */
+header{
 text-align:center;
-margin-bottom:40px;
+padding:70px 20px 50px;
+background:
+linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+radial-gradient(circle at top, rgba(122,0,20,.28), transparent 40%);
+border-bottom:1px solid rgba(255,255,255,.06);
+animation:fadeInDown .8s ease both;
 }
 
-.acto{
-margin-bottom:60px;
+header h1{
+font-size:clamp(2rem, 4vw, 3.4rem);
+margin:0 0 10px;
+letter-spacing:.5px;
+}
+
+header p{
+margin:0;
+font-size:1.05rem;
+opacity:.9;
+}
+
+/* SECCIONES */
+section{
+max-width:1000px;
+margin:auto;
+padding:40px 20px 70px;
+}
+
+.intro{
+max-width:900px;
+margin:0 auto 25px;
+padding:18px 20px;
 background:#1c1c1c;
-padding:25px;
-border-radius:10px;
+border:1px solid rgba(255,255,255,.06);
+border-radius:14px;
+box-shadow:0 8px 28px rgba(0,0,0,.28);
+animation:fadeInUp .8s ease both;
+}
+
+.intro p{
+margin:0;
+}
+
+/* ACTOS */
+.acto{
+margin-bottom:28px;
+background:#1c1c1c;
+padding:26px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.05);
+box-shadow:0 8px 26px rgba(0,0,0,.22);
+transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+animation:fadeInUp .75s ease both;
+animation-timeline:view();
+animation-range:entry 10% cover 20%;
+}
+
+.acto:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 34px rgba(0,0,0,.35);
+border-color:rgba(255,158,177,.25);
 }
 
 .acto h2{
 color:#ff9eb1;
 margin-top:0;
+margin-bottom:16px;
+font-size:1.8rem;
+letter-spacing:.3px;
+position:relative;
+padding-bottom:10px;
+}
+
+.acto h2::after{
+content:'';
+position:absolute;
+left:0;
+bottom:0;
+width:70px;
+height:3px;
+background:linear-gradient(90deg, #ff9eb1, transparent);
+border-radius:2px;
 }
 
 .escena{
 font-style:italic;
 color:#ccc;
 display:block;
-margin-bottom:15px;
+margin-bottom:14px;
 }
 
 .personaje{
@@ -83,17 +185,108 @@ color:#ff9eb1;
 
 .acotacion{
 font-style:italic;
-color:#bbb;
+color:#d0d0d0;
+margin-top:0;
+}
+
+hr{
+border:none;
+height:1px;
+background:linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+margin:18px 0;
+}
+
+p{
+margin:10px 0;
+}
+
+/* TOC / SUBTLE LINKS */
+.topnote{
+text-align:center;
+margin:0 0 18px;
+font-size:.95rem;
+color:#cfcfcf;
+}
+
+/* ANIMACIONES */
+@keyframes fadeInUp{
+from{
+opacity:0;
+transform:translateY(18px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fadeInDown{
+from{
+opacity:0;
+transform:translateY(-18px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes glowPulse{
+0%,100%{
+box-shadow:0 0 0 rgba(255,158,177,0);
+}
+50%{
+box-shadow:0 0 18px rgba(255,158,177,.12);
+}
+}
+
+.acto:nth-child(odd){
+animation-name:fadeInUp;
+}
+
+.acto:nth-child(even){
+animation-name:fadeInDown;
 }
 
 /* FOOTER */
-
 footer{
 background:#000;
 text-align:center;
 padding:20px;
+font-size:14px;
+opacity:.9;
+border-top:1px solid rgba(255,255,255,.06);
 }
 
+/* RESPONSIVE */
+@media (max-width:700px){
+nav ul{
+gap:18px;
+}
+
+header{
+padding:55px 16px 40px;
+}
+
+.acto{
+padding:20px;
+border-radius:12px;
+}
+
+.acto h2{
+font-size:1.55rem;
+}
+}
+
+@media (prefers-reduced-motion: reduce){
+*,
+*::before,
+*::after{
+animation:none !important;
+transition:none !important;
+scroll-behavior:auto !important;
+}
+}
 </style>
 </head>
 
@@ -108,66 +301,68 @@ padding:20px;
 </ul>
 </nav>
 
-<section>
-
+<header>
 <h1>Guion — El Alto Precio del Amor</h1>
+<p>Obra teatral ambientada en París, 1890.</p>
+</header>
+
+<section>
 
 <!-- ACTO 1 -->
 <div class="acto">
 <h2>ACTO 1</h2>
 
-<span class="escena">Personajes en este acto: Antonia, Víctor, Sirvientas y Mayordomos</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Antonia, Víctor, Sirvientas y Mayordomos</p>
 
-<span class="escena">Escena: París, 1890 — Un elegante comedor en una gran mansión.</span>
+<span class="escena">Escena: París, 1890</span>
+<p class="acotacion">Un elegante comedor en una gran mansión. Hay pinturas, joyas, candelabros y decoración francesa. La familia cena mientras los sirvientes circulan discretamente.</p>
 
-<p class="acotacion">Hay pinturas, joyas, candelabros y decoración francesa. La familia cena mientras los sirvientes circulan discretamente.</p>
+<p><span class="personaje">Víctor (Padre)</span> (con tono calmado) Charlotte, mañana tu madre y yo deberemos partir al famoso banquete que el presidente ha organizado sin ti. Tendrás que quedarte en casa con las sirvientas.</p>
 
-<p><span class="personaje">Víctor (Padre):</span> (con tono calmado) Charlotte, mañana tu madre y yo deberemos partir al famoso banquete que el presidente ha organizado sin ti. Tendrás que quedarte en casa con las sirvientas.</p>
+<p><span class="personaje">Charlotte</span> (molesta, dejando los cubiertos) ¿No podré asistir al banquete?</p>
 
-<p><span class="personaje">Charlotte:</span> (molesta, dejando los cubiertos) ¿No podré asistir al banquete?</p>
+<p><span class="personaje">Antonia (Madre)</span> (firme, imponente) No, Charlotte. Ese evento es solo para adultos. Te quedarás en casa, y no quiero discutirlo.</p>
 
-<p><span class="personaje">Antonia (Madre):</span> (firme, imponente) No, Charlotte. Ese evento es solo para adultos. Te quedarás en casa, y no quiero discutirlo.</p>
+<p><span class="personaje">Charlotte</span> (resignada, conteniendo su enojo) Está bien. Que disfruten su banquete. (Se levanta y sale del comedor)</p>
 
-<p><span class="personaje">Charlotte:</span> (resignada, conteniendo su enojo) Está bien. Que disfruten su banquete. (Se levanta y sale del comedor)</p>
-
-<p><span class="personaje">Víctor:</span> (suspira) No te preocupes, Antonia. Charlotte es así, ya se le pasará.</p>
+<p><span class="personaje">Víctor</span> (suspira) No te preocupes, Antonia. Charlotte es así, ya se le pasará.</p>
 
 <hr>
 
 <span class="escena">Escena: Cuarto de Charlotte</span>
-
 <p class="acotacion">Un cuarto enorme, lleno de flores, tonos rosados y dorados. Hay una peinadora llena de joyas, un espejo grande y una cama lujosa con un espaldar en forma de corona.</p>
 
 <p class="acotacion">Charlotte entra aún molesta. Se sienta frente al espejo, empieza a maquillarse y a probarse joyas y vestidos, imaginando su futuro.</p>
 
-<p><span class="personaje">Charlotte:</span> (sonriente, soñadora) Cuando me case, mi boda será perfecta… y seré feliz por siempre.</p>
+<p><span class="personaje">Charlotte</span> (sonriente, soñadora) Cuando me case, mi boda será perfecta… y seré feliz por siempre.</p>
 </div>
 
 <!-- ACTO 2 -->
 <div class="acto">
 <h2>ACTO 2</h2>
 
-<span class="escena">Personajes en este acto: Víctor, Anita, y Charlotte</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Víctor, Anita, y Charlotte</p>
 
 <span class="escena">Escena: Afuera de la mansión – madrugada</span>
-
 <p class="acotacion">La casa está oscura. Los padres de Charlotte bajan maletas hacia el carro, donde el chofer espera. La sirvienta Anita está en la entrada. Charlotte duerme en su cuarto.</p>
 
-<p><span class="personaje">Víctor:</span> Anita, por favor, ve a buscar a Charlotte para que pueda despedirse.</p>
+<p><span class="personaje">Víctor</span> Anita, por favor, ve a buscar a Charlotte para que pueda despedirse.</p>
 
-<p><span class="personaje">Anita:</span> Claro, señor.</p>
+<p><span class="personaje">Anita</span> Claro, señor.</p>
 
 <p class="acotacion">(Anita sube las escaleras, toca la puerta suavemente. Charlotte abre, aún adormilada.)</p>
 
-<p><span class="personaje">Anita:</span> Señorita Charlotte, sus padres desean que baje para despedirse.</p>
+<p><span class="personaje">Anita</span> Señorita Charlotte, sus padres desean que baje para despedirse.</p>
 
-<p><span class="personaje">Charlotte:</span> (cansada, distante) Diles… que les mando mis despedidas.</p>
+<p><span class="personaje">Charlotte</span> (cansada, distante) Diles… que les mando mis despedidas.</p>
 
-<p><span class="personaje">Anita:</span> (asiente) Como usted diga.</p>
+<p><span class="personaje">Anita</span> (asiente) Como usted diga.</p>
 
 <p class="acotacion">(Anita baja y se acerca a los padres.)</p>
 
-<p><span class="personaje">Anita:</span> Señor Víctor, la señorita Charlotte les envía sus despedidas.</p>
+<p><span class="personaje">Anita</span> Señor Víctor, la señorita Charlotte les envía sus despedidas.</p>
 
 <p class="acotacion">(Víctor asiente, con una expresión triste. Entra al carro junto con Antonia. El chofer arranca.)</p>
 
@@ -176,140 +371,140 @@ padding:20px;
 
 <!-- ACTO 3 -->
 <div class="acto">
-<h2>Acto 3</h2>
+<h2>ACTO 3</h2>
 
-<span class="escena">Personajes en este acto: Charlotte y Mia</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte y Mia</p>
 
-<span class="escena">Escena: Noche — Cuarto de Charlotte.</span>
+<span class="escena">Escena: Es de noche y Charlotte está en su cuarto preocupada porque sus padres no han llegado.</span>
+<p class="acotacion">Suena el timbre y una de las sirvientas (Mia) y recibe una noticia terrible que hace que vaya con mucha prisa al cuarto de Charlotte y le cuenta todo con mucho miedo. Es de noche y Charlotte está en su cuarto preocupada porque sus padres no han llegado. Suena el timbre y una de las sirvientas (Mia) recibe una noticia terrible que hace que vaya con mucha prisa al cual.</p>
 
-<p class="acotacion">Charlotte está en su cuarto preocupada porque sus padres no han llegado. Suena el timbre y una de las sirvientas (Mia) recibe una noticia terrible que hace que vaya con mucha prisa al cuarto de Charlotte y le cuenta todo con mucho miedo.</p>
+<p><span class="personaje">Mia</span> Señorita Charlotte de camino a casa sus padres tuvieron un terrible accidente y lamentablemente han fallecido,. Lo siento mucho. Sus padres no llenaron ninguno de los papeles que tenía que firmar, la tendrán que llevar a un orfanato (tiene un tono de voz agitado y triste)</p>
 
-<p><span class="personaje">Mia:</span> Señorita Charlotte, de camino a casa sus padres tuvieron un terrible accidente y lamentablemente han fallecido. Lo siento mucho. Sus padres no llenaron ninguno de los papeles que tenían que firmar, la tendrán que llevar a un orfanato. (tiene un tono de voz agitado y triste)</p>
+<p><span class="personaje">Charlotte</span> Como me pueden hacer esto, voy a ser pobretona y fea con cara sucia. (se pone a llorar)</p>
 
-<p><span class="personaje">Charlotte:</span> ¿Cómo me pueden hacer esto? Voy a ser pobretona y fea con cara sucia. (se pone a llorar)</p>
+<p><span class="personaje">Charlotte</span> Ni siquiera me pude despedir bien (mientras llora en los brazos de Mia)</p>
 
-<p><span class="personaje">Charlotte:</span> Ni siquiera me pude despedir bien. (mientras llora en los brazos de Mia)</p>
-
-<p><span class="personaje">Mia:</span> Mañana será el funeral y te llevarán al orfanato. (tono preocupado)</p>
+<p><span class="personaje">Mia</span> Mañana será el funeral y te llevaran al orfanato. (tono preocupado)</p>
 </div>
 
 <!-- ACTO 4 -->
 <div class="acto">
-<h2>Acto 4</h2>
+<h2>ACTO 4</h2>
 
-<span class="escena">Personajes en este acto: Charlotte</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte</p>
 
-<span class="escena">Escena: Cementerio / Afueras.</span>
+<span class="escena">Escena: Todo está nublado y es a las afueras.</span>
+<p class="acotacion">Charlotte está de pie frente a la tumba de sus padres con una rosa roja. Hay mucho silencio.</p>
 
-<p class="acotacion">Todo está nublado. Charlotte está de pie frente a la tumba de sus padres con una rosa roja. Hay mucho silencio.</p>
+<p><span class="personaje">Charlotte</span> Adiós… siempre los tendré en mi corazón.</p>
 
-<p><span class="personaje">Charlotte:</span> Adiós… siempre los tendré en mi corazón.</p>
-
-<p><span class="personaje">Charlotte:</span> Ojalá estuvieran aquí conmigo. No sé qué hacer sin ustedes.</p>
+<p><span class="personaje">Charlotte</span> Ojalá estuvieran aquí conmigo. No sé qué hacer sin ustedes.</p>
 
 <p class="acotacion">(El viento sopla fuerte. Charlotte deja la rosa sobre la tumba.)</p>
 
 <p class="acotacion">(Se escuchan pasos detrás de ella y dos hombres muy fuertes aparecen de repente y la agarran.)</p>
 
-<p><span class="personaje">Charlotte:</span> ¡Suéltenme! ¡No! ¡No me van a llevar a ese lugar! ¡No puedo ser pobre!</p>
+<p><span class="personaje">Charlotte</span> ¡Suéltenme! ¡No! ¡No me van a llevar a ese lugar! ¡No puedo ser pobre!</p>
 
-<p><span class="personaje">Charlotte:</span> ¡Ustedes, no dejen que me lleven! ¡Por favor! ¡No lo hagan!</p>
+<p><span class="personaje">Charlotte</span> ¡Ustedes, no dejen que me lleven! ¡Por favor! ¡No lo hagan!</p>
 
-<p class="acotacion">(Las sirvientas y los invitados la observan con un poco de dolor sin decir nada.)</p>
+<p class="acotacion">(Las sirvientas y los invitados la observan con un poco de dolor sin decir nada)</p>
 </div>
 
 <!-- ACTO 5 -->
 <div class="acto">
-<h2>Acto 5</h2>
+<h2>ACTO 5</h2>
 
-<span class="escena">Personajes en este acto: Charlotte y Erick</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte y Erick</p>
 
-<span class="escena">Escena: Llegada al orfanato.</span>
+<span class="escena">Escena: Charlotte llega al orfanato gris y triste, lo observa con una mezcla de tristeza y asco mientras la instructora la espera afuera para recibirla.</span>
 
-<p class="acotacion">Charlotte llega al orfanato gris y triste, lo observa con una mezcla de tristeza y asco mientras la instructora la espera afuera para recibirla.</p>
+<p><span class="personaje">Instructora</span> Por favor pasa, te estábamos esperando para recibirte.</p>
 
-<p><span class="personaje">Instructora:</span> Por favor pasa, te estábamos esperando para recibirte.</p>
+<p class="acotacion">Entra y ve a muchos niños esperándola</p>
 
-<p class="acotacion">Entra y ve a muchos niños esperándola.</p>
+<p><span class="personaje">Instructora</span> Ella será su nueva compañera Charlotte Laurent. ¿Quieres contarnos un poco de ti?</p>
 
-<p><span class="personaje">Instructora:</span> Ella será su nueva compañera Charlotte Laurent. ¿Quieres contarnos un poco de ti?</p>
-
-<p><span class="personaje">Charlotte:</span> No gracias. (muestra una sonrisa falsa)</p>
+<p><span class="personaje">Charlotte</span> No gracias (muestra una sonrisa falsa)</p>
 
 <p class="acotacion">(Todos se van y Charlotte se queda sola, se apega a la pared junto a sus cosas y empieza a llorar. Erick pasa caminando por ahí y accidentalmente pisa su mano.)</p>
 
-<p><span class="personaje">Charlotte:</span> Auch, mi mano, me acabas de pisar mi mano. (Está un poco molesta, pero sigue triste)</p>
+<p><span class="personaje">Charlotte</span> Auch, mi mano, me acabas de pisar mi mano. (Está un poco molesta, pero sigue triste)</p>
 
-<p><span class="personaje">Erick:</span> Lo siento muchísimo, estaba muy distraído y te juro que no te vi.</p>
+<p><span class="personaje">Erick</span> Lo siento muchísimo, estaba muy distraído y te juro que no te ví.</p>
 
-<p><span class="personaje">Charlotte:</span> Está bien, ya no importa.</p>
+<p><span class="personaje">Charlotte</span> Está bien, ya no importa.</p>
 
-<p><span class="personaje">Erick:</span> (entrecierra los ojos y se acerca un poco) ¿Estabas llorando?</p>
+<p><span class="personaje">Erick</span> (entrecierra los ojos y se acerca un poco) ¿Estabas llorando?</p>
 
-<p><span class="personaje">Charlotte:</span> La verdad es que sí, no me acostumbro a este entorno y no creo que lo haga, mi lugar no es aquí.</p>
+<p><span class="personaje">Charlotte</span> La verdad es que si, no me acostumbro a este entorno y no creo que lo haga, mi lugar no es aquí.</p>
 
-<p><span class="personaje">Erick:</span> Yo también pensaba lo mismo cuando llegué.</p>
+<p><span class="personaje">Erick</span> Yo también pensaba lo mismo cuando llegué.</p>
 
-<p><span class="personaje">Charlotte:</span> ¿En serio?</p>
+<p><span class="personaje">Charlotte</span> ¿En serio?</p>
 
-<p><span class="personaje">Erick:</span> Sí. El primer día quería escaparme. Pensaba que este lugar era el peor del mundo. (Muestra una sonrisa para intentar animarla un poco)</p>
+<p><span class="personaje">Erick</span> Sí. El primer día quería escaparme. Pensaba que este lugar era el peor del mundo. (Muestra una sonrisa para intentar animarla un poco)</p>
 
-<p><span class="personaje">Charlotte:</span> (seca sus lágrimas) Entonces ¿por qué sigues aquí?</p>
+<p><span class="personaje">Charlotte</span> (seca sus lágrimas) Entonces ¿por qué sigues aquí?</p>
 
-<p><span class="personaje">Erick:</span> Porque con el tiempo encontré personas que lo hicieron un poco menos horrible.</p>
+<p><span class="personaje">Erick</span> Porque con el tiempo encontré personas que lo hicieron un poco menos horrible.</p>
 
 <p class="acotacion">(Charlotte lo mira con curiosidad.)</p>
 
-<p><span class="personaje">Charlotte:</span> No pareces como los demás…</p>
+<p><span class="personaje">Charlotte</span> No pareces como los demás…</p>
 
-<p><span class="personaje">Erick:</span> ¿Eso es bueno o malo? (Levanta una ceja y muestra una pequeña sonrisa)</p>
+<p><span class="personaje">Erick</span> ¿Eso es bueno o malo? (Levanta una ceja y muestra una pequeña sonrisa)</p>
 
-<p><span class="personaje">Charlotte:</span> Creo que bueno. (También sonríe)</p>
+<p><span class="personaje">Charlotte</span> Creo que bueno. (También sonríe)</p>
 
 <p class="acotacion">(Hay un pequeño silencio.)</p>
 
-<p><span class="personaje">Erick:</span> Si quieres puedo enseñarte el lugar. No es tan terrible como parece.</p>
+<p><span class="personaje">Erick</span> Si quieres puedo enseñarte el lugar. No es tan terrible como parece.</p>
 
-<p><span class="personaje">Charlotte:</span> (duda un momento) Está bien.</p>
+<p><span class="personaje">Charlotte</span> (duda un momento) Está bien.</p>
 
 <p class="acotacion">(Erick le ayuda a levantarse y recoge una de sus cosas del suelo.)</p>
 
-<p><span class="personaje">Erick:</span> Ven, te voy a mostrar el único lugar bueno de aquí.</p>
+<p><span class="personaje">Erick</span> Ven, te voy a mostrar el único lugar bueno de aquí.</p>
 
-<p><span class="personaje">Charlotte:</span> ¿Existe algo bueno aquí?</p>
+<p><span class="personaje">Charlotte</span> ¿Existe algo bueno aquí?</p>
 
-<p><span class="personaje">Erick:</span> Sí, el jardín de atrás. Nadie va casi nunca.</p>
+<p><span class="personaje">Erick</span> Sí, el jardín de atrás. Nadie va casi nunca.</p>
 
 <p class="acotacion">(Caminan juntos hacia el jardín. Charlotte comienza a sentirse un poco más tranquila.)</p>
 
-<p><span class="personaje">Charlotte:</span> Gracias, por ayudarme.</p>
+<p><span class="personaje">Charlotte</span> Gracias, por ayudarme.</p>
 
-<p><span class="personaje">Erick:</span> No hay problema. Además, ahora ya no estás sola.</p>
+<p><span class="personaje">Erick</span> No hay problema. Además, ahora ya no estás sola.</p>
 
-<p><span class="personaje">Charlotte:</span> Deberíamos vernos siempre aquí, es muy lindo y tranquilo.</p>
+<p><span class="personaje">Charlotte</span> Deberíamos vernos siempre aquí, es muy lindo y tranquilo.</p>
 
-<p><span class="personaje">Erick:</span> Si que lo es.</p>
+<p><span class="personaje">Erick</span> Si que lo es.</p>
 
 <p class="acotacion">(Pasan los días. Se muestran varias escenas cortas de ellos riendo, caminando por el jardín y ayudándose.)</p>
 </div>
 
 <!-- ACTO 6 -->
 <div class="acto">
-<h2>Acto 6</h2>
+<h2>ACTO 6</h2>
 
-<span class="escena">Personajes en este acto: Charlotte y Erick</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte y Erick</p>
 
 <span class="escena">Escena: Un día en el patio del orfanato.</span>
 
-<p><span class="personaje">Instructora:</span> ¡Erick! Ven un momento, por favor.</p>
+<p><span class="personaje">Instructora</span> ¡Erick! Ven un momento, por favor.</p>
 
 <p class="acotacion">(Erick se acerca confundido. Charlotte lo mira desde lejos.)</p>
 
-<p><span class="personaje">Instructora:</span> Hoy vinieron unas personas a visitarte… quieren adoptarte.</p>
+<p><span class="personaje">Instructora</span> Hoy vinieron unas personas a visitarte… quieren adoptarte.</p>
 
-<p><span class="personaje">Erick:</span> ¿Adoptarme?</p>
+<p><span class="personaje">Erick</span> ¿Adoptarme?</p>
 
-<p><span class="personaje">Instructora:</span> Son unos campesinos muy amables. Tienen una granja y quieren darte un hogar.</p>
+<p><span class="personaje">Instructora</span> Son unos campesinos muy amables. Tienen una granja y quieren darte un hogar.</p>
 
 <p class="acotacion">(Erick mira hacia Charlotte preocupado.)</p>
 
@@ -317,165 +512,178 @@ padding:20px;
 
 <span class="escena">Escena: El jardín otra vez.</span>
 
-<p><span class="personaje">Charlotte:</span> ¿Qué quería la instructora?</p>
+<p><span class="personaje">Charlotte</span> ¿Qué quería la instructora?</p>
 
-<p><span class="personaje">Erick:</span> (triste) Vinieron a adoptarme.</p>
+<p><span class="personaje">Erick</span> (triste) Vinieron a adoptarme.</p>
 
-<p><span class="personaje">Charlotte:</span> (se queda en silencio) ¿Eso significa que te vas?</p>
+<p><span class="personaje">Charlotte</span> (se queda en silencio) ¿Eso significa que te vas?</p>
 
-<p><span class="personaje">Erick:</span> Sí, mañana.</p>
+<p><span class="personaje">Erick</span> Sí, mañana.</p>
 
-<p><span class="personaje">Charlotte:</span> Me alegro por ti, de verdad.</p>
+<p><span class="personaje">Charlotte</span> Me alegro por ti, de verdad.</p>
 
-<p><span class="personaje">Erick:</span> Charlotte…</p>
+<p><span class="personaje">Erick</span> Charlotte…</p>
 
-<p><span class="personaje">Erick:</span> Antes de irme, tengo que decirte algo.</p>
+<p><span class="personaje">Erick</span> Antes de irme, tengo que decirte algo.</p>
 
-<p><span class="personaje">Charlotte:</span> ¿Qué cosa?</p>
+<p><span class="personaje">Charlotte</span> ¿Qué cosa?</p>
 
-<p><span class="personaje">Erick:</span> Cuando llegaste, todo cambió aquí para mí. Ya no quería escapar del orfanato porque estabas tú.</p>
+<p><span class="personaje">Erick</span> Cuando llegaste, todo cambió aquí para mí. Ya no quería escapar del orfanato porque estabas tú.</p>
 
 <p class="acotacion">(Charlotte empieza a llorar.)</p>
 
-<p><span class="personaje">Charlotte:</span> Yo también, nunca pensé que encontraría a alguien que me entendiera tanto.</p>
+<p><span class="personaje">Charlotte</span> Yo también, nunca pensé que encontraría a alguien que me entendiera tanto.</p>
 
-<p><span class="personaje">Erick:</span> Creo que, me enamoré de ti.</p>
+<p><span class="personaje">Erick</span> Creo que, me enamoré de ti.</p>
 
-<p><span class="personaje">Charlotte:</span> Yo también estoy enamorada de ti.</p>
+<p><span class="personaje">Charlotte</span> Yo también estoy enamorada de ti.</p>
 
 <p class="acotacion">(Se abrazan.)</p>
 </div>
 
 <!-- ACTO 7 -->
 <div class="acto">
-<h2>Acto 7</h2>
+<h2>ACTO 7</h2>
 
-<span class="escena">Personajes en este acto: Charlotte, Erick y Alicia</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte, Erick y Alicia</p>
 
-<span class="escena">Escena: Entrada del orfanato al amanecer.</span>
+<span class="escena">Escena: Entrada del orfanato al amanecer. Una carreta espera afuera. Los campesinos están listos para irse.</span>
 
-<p class="acotacion">Una carreta espera afuera. Los campesinos están listos para irse.</p>
+<p><span class="personaje">Campesino</span> Es hora de irnos, muchacho.</p>
 
-<p><span class="personaje">Campesino:</span> Es hora de irnos, muchacho.</p>
+<p class="acotacion">(Erick mira a Charlotte)</p>
 
-<p><span class="personaje">Erick:</span> Nunca te voy a olvidar.</p>
+<p><span class="personaje">Erick</span> Nunca te voy a olvidar.</p>
 
-<p><span class="personaje">Charlotte:</span> Yo tampoco.</p>
+<p><span class="personaje">Charlotte</span> Yo tampoco.</p>
 
-<p class="acotacion">Erick le da a Charlotte un pequeño reloj de bolsillo, como recuerdo.</p>
+<p><span class="personaje">Erick</span> Para que siempre me recuerdes.</p>
 
-<p><span class="personaje">Erick:</span> Para que siempre me recuerdes.</p>
+<p><span class="personaje">Charlotte</span> No lo necesito, nunca te voy a olvidar.</p>
 
-<p><span class="personaje">Charlotte:</span> No lo necesito, nunca te voy a olvidar.</p>
+<p class="acotacion">(Erick le da a Charlotte un pequeño reloj de bolsillo, como recuerdo.)</p>
 
-<p class="acotacion">(Se abrazan por última vez. Erick sube a la carreta y se aleja mientras Charlotte lo ve irse con lágrimas.)</p>
+<p class="acotacion">(Se abrazan por última vez.)</p>
+
+<p class="acotacion">(Erick sube a la carreta y se aleja mientras Charlotte lo ve irse con lágrimas.)</p>
+
+<p class="acotacion">(Charlotte regresa y solo se sienta en el mismo lugar que se sentó la vez que Erick le pisó la mano. Está observando el último recuerdo de él, el pequeño reloj)</p>
 
 <p class="acotacion">(La instructora aparece y la llama.)</p>
 
-<p><span class="personaje">Instructora:</span> Charlotte Laurent, ven conmigo. Alguien vino a verte.</p>
+<p><span class="personaje">Instructora</span> Charlotte Laurent, ven conmigo. Alguien vino a verte.</p>
 
-<p><span class="personaje">Charlotte:</span> ¿A mí?</p>
+<p><span class="personaje">Charlotte</span> ¿A mí?</p>
 
 <p class="acotacion">(Van hacia la entrada del orfanato. Allí está una mujer elegante con un vestido oscuro y un sombrero.)</p>
 
-<p><span class="personaje">Instructora:</span> Charlotte, ella dice ser tu tía.</p>
+<p><span class="personaje">Instructora</span> Charlotte, ella dice ser tu tía.</p>
 
-<p><span class="personaje">Alicia:</span> Charlotte, soy tu tía Alicia, la hermana de tu madre.</p>
+<p><span class="personaje">Alicia</span> Charlotte, soy tu tía Alicia, la hermana de tu madre.</p>
 
-<p><span class="personaje">Charlotte:</span> ¿Mi tía?</p>
+<p><span class="personaje">Charlotte</span> ¿Mi tía?</p>
 
-<p><span class="personaje">Alicia:</span> He venido a sacarte de este lugar. Una Laurent no pertenece a un orfanato.</p>
+<p><span class="personaje">Alicia</span> He venido a sacarte de este lugar. Una Laurent no pertenece a un orfanato.</p>
 
 <p class="acotacion">(Charlotte toma sus cosas y sale del orfanato con su tía con una sonrisa ligera en su rostro.)</p>
 </div>
 
 <!-- ACTO 8 -->
 <div class="acto">
-<h2>Acto 8</h2>
+<h2>ACTO 8</h2>
 
-<span class="escena">Personajes en este acto: Charlotte y Alicia</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte y Alicia</p>
 
-<span class="escena">Escena: Una gran mansión elegante.</span>
+<span class="escena">Escena: Una gran mansión elegante. Charlotte ahora lleva un vestido hermoso. Su tía la observa mientras unos sirvientes terminan de prepararla.</span>
 
-<p class="acotacion">Charlotte ahora lleva un vestido hermoso. Su tía la observa mientras unos sirvientes terminan de prepararla.</p>
+<p><span class="personaje">Alicia</span> Esta noche hay un baile muy prestigioso en la ciudad.</p>
 
-<p><span class="personaje">Alicia:</span> Esta noche hay un baile muy prestigioso en la ciudad.</p>
+<p><span class="personaje">Charlotte</span> ¿Un baile?</p>
 
-<p><span class="personaje">Charlotte:</span> ¿Un baile?</p>
+<p><span class="personaje">Alicia</span> Exacto. Toda la alta sociedad estará allí. Es el lugar perfecto para que todos recuerden el apellido Laurent.</p>
 
-<p><span class="personaje">Alicia:</span> Exacto. Toda la alta sociedad estará allí. Es el lugar perfecto para que todos recuerden el apellido Laurent.</p>
+<p><span class="personaje">Charlotte</span> (un poco nerviosa) Hace mucho que no estoy en un lugar así.</p>
 
-<p><span class="personaje">Charlotte:</span> (un poco nerviosa) Hace mucho que no estoy en un lugar así.</p>
-
-<p><span class="personaje">Alicia:</span> No te preocupes. Solo debes caminar con elegancia y sonreír.</p>
+<p><span class="personaje">Alicia</span> No te preocupes. Solo debes caminar con elegancia y sonreír.</p>
 
 <p class="acotacion">(Un sirviente entra.)</p>
 
-<p><span class="personaje">Sirviente:</span> El carruaje está listo señora.</p>
+<p><span class="personaje">Sirviente</span> El carruaje está listo señora.</p>
 
-<p><span class="personaje">Alicia:</span> Perfecto.</p>
+<p><span class="personaje">Alicia</span> Perfecto.</p>
 </div>
 
 <!-- ACTO 9 -->
 <div class="acto">
-<h2>Acto 9</h2>
+<h2>ACTO 9</h2>
 
-<span class="escena">Personajes en este acto: David y Charlotte</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">David y Charlotte</p>
 
 <span class="escena">Escena: Un gran salón de baile lleno de luces, música y gente elegante.</span>
-
 <p class="acotacion">Las personas bailan y conversan.</p>
 
-<p><span class="personaje">David:</span> Buenas noches, señorita Laurent.</p>
+<p><span class="personaje">David</span> Buenas noches, señorita Laurent.</p>
 
-<p><span class="personaje">Charlotte:</span> Buenas noches.</p>
+<p><span class="personaje">Charlotte</span> Buenas noches.</p>
 
-<p><span class="personaje">David:</span> Permítame presentarme. Soy David Beaumont.</p>
+<p><span class="personaje">David</span> Permítame presentarme. Soy David Beaumont.</p>
 
-<p><span class="personaje">Charlotte:</span> Mucho gusto.</p>
+<p><span class="personaje">Charlotte</span> Mucho gusto.</p>
 
-<p><span class="personaje">David:</span> Debo decir que toda la sala habla de usted esta noche.</p>
+<p><span class="personaje">David</span> Debo decir que toda la sala habla de usted esta noche.</p>
 
-<p><span class="personaje">Charlotte:</span> (sonríe con educación) Espero que no digan nada malo.</p>
+<p><span class="personaje">Charlotte</span> (sonríe con educación) Espero que no digan nada malo.</p>
 
-<p><span class="personaje">David:</span> Todo lo contrario. Dicen que es la joven más elegante del baile.</p>
+<p><span class="personaje">David</span> Todo lo contrario. Dicen que es la joven más elegante del baile.</p>
 
 <p class="acotacion">(Charlotte se sonroja un poco.)</p>
 
-<p><span class="personaje">David:</span> ¿Me concedería este baile?</p>
+<p><span class="personaje">David</span> ¿Me concedería este baile?</p>
 
-<p><span class="personaje">Charlotte:</span> Claro.</p>
+<p><span class="personaje">Charlotte</span> Claro.</p>
 
-<p class="acotacion">(Empiezan a bailar junto a otras personas. La música termina y dejan de bailar.)</p>
+<p class="acotacion">(Empiezan a bailar junto a otras personas)</p>
 
-<p><span class="personaje">David:</span> Gracias por este baile, señorita Laurent.</p>
+<p class="acotacion">(La música termina y dejan de bailar.)</p>
 
-<p><span class="personaje">Charlotte:</span> Gracias a usted.</p>
+<p><span class="personaje">David</span> Gracias por este baile, señorita Laurent.</p>
 
-<p><span class="personaje">David:</span> Espero que podamos volver a bailar más tarde.</p>
+<p><span class="personaje">Charlotte</span> Gracias a usted.</p>
 
-<p><span class="personaje">Charlotte:</span> Igualmente.</p>
+<p><span class="personaje">David</span> Espero que podamos volver a bailar más tarde.</p>
 
-<p class="acotacion">(David besa la mano de Charlotte delicadamente.)</p>
+<p><span class="personaje">Charlotte</span> Igualmente</p>
+
+<p><span class="personaje">David</span> Que tenga una hermosa noche.</p>
+
+<p class="acotacion">(Besa la mano de Charlotte delicadamente)</p>
+
+<p><span class="personaje">Charlotte</span> Igualmente, señor Beaumont.</p>
+
+<p class="acotacion">(Charlotte se va con su tía)</p>
 </div>
 
 <!-- ACTO 10 -->
 <div class="acto">
-<h2>Acto 10</h2>
+<h2>ACTO 10</h2>
 
-<span class="escena">Personajes en este acto: Charlotte, Alicia y David</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte, Alicia y David</p>
 
 <span class="escena">Escena: Un tiempo después, en la mansión de la tía.</span>
 
-<p><span class="personaje">Alicia:</span> David Beaumont es un excelente partido. Su familia tiene mucho prestigio.</p>
+<p><span class="personaje">Alicia</span> David Beaumont es un excelente partido. Su familia tiene mucho prestigio.</p>
 
-<p><span class="personaje">Charlotte:</span> Tía no puedo, apenas lo conozco.</p>
+<p><span class="personaje">Charlotte</span> Tía no puedo, apenas lo conozco.</p>
 
-<p><span class="personaje">Alicia:</span> Eso no importa, este matrimonio ayudará a recuperar completamente el nombre de nuestra familia.</p>
+<p><span class="personaje">Alicia</span> Eso no importa, este matrimonio ayudará a recuperar completamente el nombre de nuestra familia.</p>
 
-<p><span class="personaje">Charlotte:</span> Pero—</p>
+<p><span class="personaje">Charlotte</span> Pero—</p>
 
-<p><span class="personaje">Alicia:</span> Charlotte, debes pensar en tu futuro. (Alicia interrumpe a Charlotte)</p>
+<p><span class="personaje">Alicia</span> Charlotte, debes pensar en tu futuro. (Alicia interrumpe a Charlotte)</p>
 
 <p class="acotacion">(Charlotte baja la mirada.)</p>
 
@@ -483,261 +691,285 @@ padding:20px;
 
 <span class="escena">Escena: Jardín de la mansión.</span>
 
-<p><span class="personaje">David:</span> Charlotte, hay algo que quiero decirte.</p>
+<p><span class="personaje">David</span> Charlotte, hay algo que quiero decirte.</p>
 
-<p><span class="personaje">Charlotte:</span> ¿Sí?</p>
+<p><span class="personaje">Charlotte</span> ¿Sí?</p>
 
-<p><span class="personaje">David:</span> Desde el día que te conocí no he dejado de pensar en ti.</p>
+<p><span class="personaje">David</span> Desde el día que te conocí no he dejado de pensar en ti.</p>
 
 <p class="acotacion">(Charlotte lo escucha en silencio.)</p>
 
-<p><span class="personaje">David:</span> Eres inteligente, elegante y tienes un corazón muy especial. Creo que estoy enamorado de ti.</p>
+<p><span class="personaje">David</span> Eres inteligente, elegante y tienes un corazón muy especial. Creo que estoy enamorado de ti.</p>
 
-<p class="acotacion">(Charlotte se queda pensativa.)</p>
+<p class="acotacion">(Charlotte se queda pensativa)</p>
 
-<p><span class="personaje">Charlotte:</span> David tú eres muy amable conmigo.</p>
+<p><span class="personaje">Charlotte</span> David tú eres muy amable conmigo.</p>
 
-<p><span class="personaje">David:</span> ¿Eso significa que aceptarías casarte conmigo?</p>
+<p><span class="personaje">David</span> ¿Eso significa que aceptarías casarte conmigo?</p>
 
 <p class="acotacion">(Charlotte duda, piensa en Erick.)</p>
 
-<p><span class="personaje">Charlotte:</span> Si, si acepto.</p>
+<p><span class="personaje">Charlotte</span> Si, si acepto.</p>
 
-<p><span class="personaje">David:</span> Gracias, hare que nuestra boda sea perfecta.</p>
+<p><span class="personaje">David</span> Gracias, hare que nuestra boda sea perfecta.</p>
 
 <p class="acotacion">(Charlotte asiente lentamente.)</p>
 </div>
 
 <!-- ACTO 11 -->
 <div class="acto">
-<h2>Acto 11</h2>
+<h2>ACTO 11</h2>
 
-<span class="escena">Personajes en este acto: Charlotte, Sacerdote y David</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte, Sacerdote y David</p>
 
-<span class="escena">Escena: Una iglesia elegante decorada para la boda.</span>
-
-<p class="acotacion">Los invitados están sentados. Charlotte está lista para caminar hacia el altar.</p>
+<span class="escena">Escena: Una iglesia elegante decorada para la boda. Los invitados están sentados. Charlotte está lista para caminar hacia el altar.</span>
 
 <p class="acotacion">(Charlotte está sola un momento antes de entrar. Abre su mano y saca un pequeño reloj, el recuerdo que Erick le dio.)</p>
 
-<p><span class="personaje">Charlotte:</span> (en voz baja) Erick, ojalá supieras cuánto significaste para mí.</p>
+<p><span class="personaje">Charlotte</span> (en voz baja) Erick, ojalá supieras cuánto significaste para mí.</p>
 
 <p class="acotacion">(Mira el reloj unos segundos y suspira.)</p>
 
-<p><span class="personaje">Charlotte:</span> Pero mi vida ahora es otra.</p>
+<p><span class="personaje">Charlotte</span> Pero mi vida ahora es otra.</p>
+
+<p class="acotacion">(Guarda el reloj y respira profundo.)</p>
 
 <p class="acotacion">(La música comienza y Charlotte camina hacia el altar donde David la espera.)</p>
 
-<p><span class="personaje">Sacerdote:</span> Estamos reunidos hoy para unir en matrimonio a David Beaumont y Charlotte Laurent.</p>
+<p><span class="personaje">Sacerdote</span> Estamos reunidos hoy para unir en matrimonio a David Beaumont y Charlotte Laurent.</p>
 
-<p><span class="personaje">Sacerdote:</span> David Beaumont, ¿aceptas a Charlotte Laurent como tu esposa?</p>
+<p><span class="personaje">Sacerdote</span> David Beaumont, ¿aceptas a Charlotte Laurent como tu esposa?</p>
 
-<p><span class="personaje">David:</span> Sí, acepto.</p>
+<p><span class="personaje">David</span> Sí, acepto.</p>
 
-<p><span class="personaje">Sacerdote:</span> Charlotte Laurent, ¿aceptas a David Beaumont como tu esposo?</p>
+<p><span class="personaje">Sacerdote</span> Charlotte Laurent, ¿aceptas a David Beaumont como tu esposo?</p>
 
-<p><span class="personaje">Charlotte:</span> Sí… acepto.</p>
+<p><span class="personaje">Charlotte</span> Sí… acepto.</p>
 
-<p class="acotacion">Entonces, los declaro marido y mujer. (Se ponen los anillos uno al otro.) Los invitados aplauden y ambos salen con una sonrisa, y Charlotte con un ramo de flores.</p>
+<p class="acotacion">Entonces, los declaro marido y mujer.</p>
+
+<p class="acotacion">(Se ponen los anillos uno al otro.)</p>
+
+<p class="acotacion">(Los invitados aplauden y ambos salen con una sonrisa, y Charlotte con un ramo de flores.)</p>
 </div>
 
 <!-- ACTO 12 -->
 <div class="acto">
-<h2>Acto 12</h2>
+<h2>ACTO 12</h2>
 
-<span class="escena">Personajes en este acto: Mateo y Erick</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Mateo y Erick</p>
 
-<span class="escena">Escena: Una granja tranquila.</span>
+<span class="escena">Escena: Una granja tranquila. Erick está trabajando cuando llega su amigo Mateo.</span>
 
-<p class="acotacion">Erick está trabajando cuando llega su amigo Mateo.</p>
+<p><span class="personaje">Mateo</span> ¡Erick! Cuánto tiempo sin verte.</p>
 
-<p><span class="personaje">Mateo:</span> ¡Erick! Cuánto tiempo sin verte.</p>
+<p><span class="personaje">Erick</span> Mateo, qué sorpresa. ¿Qué haces por aquí?</p>
 
-<p><span class="personaje">Erick:</span> Mateo, qué sorpresa. ¿Qué haces por aquí?</p>
+<p><span class="personaje">Mateo</span> Vine a visitarte y a sacarte un poco de esta granja.</p>
 
-<p><span class="personaje">Mateo:</span> Vine a visitarte y a sacarte un poco de esta granja.</p>
+<p><span class="personaje">Erick</span> (sonríe) Ya sabes que este es mi hogar ahora.</p>
 
-<p><span class="personaje">Erick:</span> (sonríe) Ya sabes que este es mi hogar ahora.</p>
+<p><span class="personaje">Mateo</span> Sí, pero en la ciudad habrá un baile muy famoso esta semana. Mucha gente importante irá.</p>
 
-<p><span class="personaje">Mateo:</span> Sí, pero en la ciudad habrá un baile muy famoso esta semana. Mucha gente importante irá.</p>
+<p><span class="personaje">Erick</span> ¿Un baile? Eso no es para mí.</p>
 
-<p><span class="personaje">Erick:</span> ¿Un baile? Eso no es para mí.</p>
-
-<p><span class="personaje">Mateo:</span> Vamos, Erick. Podríamos divertirnos un poco y quién sabe tal vez conozcas a alguien.</p>
+<p><span class="personaje">Mateo</span> Vamos, Erick. Podríamos divertirnos un poco y quién sabe tal vez conozcas a alguien.</p>
 
 <p class="acotacion">(Erick mira el horizonte pensativo.)</p>
 
-<p><span class="personaje">Erick:</span> Está bien, iremos al baile.</p>
+<p><span class="personaje">Erick</span> Está bien, iremos al baile.</p>
 </div>
 
 <!-- ACTO 13 -->
 <div class="acto">
-<h2>Acto 13</h2>
+<h2>ACTO 13</h2>
 
-<span class="escena">Personajes en este acto: Erick y Mateo</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Erick y Mateo</p>
 
-<span class="escena">Escena: Un gran salón de baile en la ciudad.</span>
+<span class="escena">Escena: Un gran salón de baile en la ciudad. Hay música, luces y mucha gente elegante bailando.</span>
 
 <p class="acotacion">(Erick y Mateo entran al salón.)</p>
 
-<p><span class="personaje">Mateo:</span> ¿Ves? Te dije que valía la pena venir.</p>
+<p><span class="personaje">Mateo</span> ¿Ves? Te dije que valía la pena venir.</p>
 
-<p><span class="personaje">Erick:</span> Es mucho más grande de lo que imaginaba.</p>
+<p><span class="personaje">Erick</span> Es mucho más grande de lo que imaginaba.</p>
 
 <p class="acotacion">(Mientras observan el salón, Erick mira alrededor. De repente se queda quieto.)</p>
 
-<p><span class="personaje">Mateo:</span> ¿Qué pasa?</p>
+<p><span class="personaje">Mateo</span> ¿Qué pasa?</p>
 
-<p><span class="personaje">Erick:</span> (en voz baja) No puede ser.</p>
+<p><span class="personaje">Erick</span> (en voz baja) No puede ser.</p>
 
 <p class="acotacion">(A lo lejos, Charlotte está hablando con algunos invitados a lo lejos, está muy junta de David y lleva un vestido elegante y un anillo de bodas en su dedo.)</p>
 
-<p><span class="personaje">Erick:</span> Es ella.</p>
+<p><span class="personaje">Mateo</span> ¿Qué ocurre?</p>
 
-<p><span class="personaje">Mateo:</span> ¿Quién?</p>
+<p><span class="personaje">Erick</span> (sin dejar de mirarla) Es ella.</p>
 
-<p><span class="personaje">Erick:</span> Charlotte.</p>
+<p><span class="personaje">Mateo</span> ¿Quién?</p>
+
+<p><span class="personaje">Erick</span> Charlotte.</p>
 
 <p class="acotacion">(Los invitados con los que hablaba se van con David y dejan a Charlotte ahí mismo. De repente se da la vuelta e intercambian miradas. La copa de la cual estaba bebiendo se cae y se le rompe.)</p>
 </div>
 
 <!-- ACTO 14 -->
 <div class="acto">
-<h2>Acto 14</h2>
+<h2>ACTO 14</h2>
 
-<span class="escena">Personajes en este acto: Charlotte y Erick</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Charlotte y Erick</p>
 
-<span class="escena">Escena: El patio del salón de baile.</span>
+<span class="escena">Escena: El patio del salón de baile. Es de noche, con algunas luces y música suave que se escucha desde adentro.</span>
 
-<p class="acotacion">Es de noche, con algunas luces y música suave que se escucha desde adentro.</p>
+<p class="acotacion">(Charlotte sale al patio para tomar aire. Parece pensativa.)</p>
 
-<p class="acotacion">(Charlotte sale al patio para tomar aire. Parece pensativa. Erick también sale.)</p>
+<p><span class="personaje">Charlotte</span> (en voz baja) Necesitaba un momento de tranquilidad.</p>
 
-<p><span class="personaje">Charlotte:</span> (en voz baja) Necesitaba un momento de tranquilidad.</p>
-
-<p><span class="personaje">Erick:</span> (pensando) Tal vez fue mi imaginación, pero parecía ella.</p>
+<p><span class="personaje">Erick</span> (pensando) Tal vez fue mi imaginación, pero parecía ella.</p>
 
 <p class="acotacion">(Ambos caminan lentamente y de repente se dan la vuelta y se ven frente a frente.)</p>
 
-<p><span class="personaje">Charlotte:</span> ¿Erick?</p>
+<p><span class="personaje">Charlotte</span> ¿Erick?</p>
 
-<p><span class="personaje">Erick:</span> Charlotte.</p>
+<p><span class="personaje">Erick</span> Charlotte.</p>
 
 <p class="acotacion">(Los dos sonríen, aún sin creerlo.)</p>
 
-<p><span class="personaje">Charlotte:</span> No puedo creer que seas tú.</p>
+<p><span class="personaje">Charlotte</span> No puedo creer que seas tú.</p>
 
-<p><span class="personaje">Erick:</span> Yo tampoco, pensé que nunca volvería a verte.</p>
+<p><span class="personaje">Erick</span> Yo tampoco,</p>
+<p><span class="personaje">Erick</span> pensé que nunca volvería a verte.</p>
 
 <p class="acotacion">(Se abrazan por un momento, emocionados.)</p>
 
-<p><span class="personaje">Charlotte:</span> Lo siento, Erick, tengo que irme con mi esposo. Adiós.</p>
+<p><span class="personaje">Charlotte</span> Lo siento, Erick, tengo que irme con mi esposo. Adiós</p>
 
 <p class="acotacion">(Erick baja la cabeza y mira con decepción.)</p>
 
-<p><span class="personaje">Erick:</span> Pero podemos seguir viéndonos si deseas. ¿Qué te parece en el parque de Avenida de los Campos Elíseos? Ahí hay muchas flores y árboles.</p>
+<p><span class="personaje">Erick</span> Pero podemos seguir viéndonos si deseas. ¿Qué te parece en el parque de Avenida de los Campos Elíseos? Ahí hay muchas flores y árboles.</p>
 
-<p><span class="personaje">Charlotte:</span> Está bien, ahí te veo.</p>
+<p><span class="personaje">Charlotte</span> Está bien, ahí te veo.</p>
+
+<p class="acotacion">(Ambos se van y Charlotte regresa con David)</p>
+
+<p><span class="personaje">David</span> ¿Dónde estabas? te estaba buscando.</p>
+
+<p><span class="personaje">Charlotte</span> Salí para tomar aire, es que estaba muy cansada. (Intenta no mirar a los ojos a David y está nerviosa.)</p>
+
+<p><span class="personaje">David</span> No te preocupes, si es que estás muy cansada, podemos ir a casa. (Sonríe con cariño.)</p>
+
+<p><span class="personaje">Charlotte</span> Bueno, gracias.</p>
 </div>
 
 <!-- ACTO 15 -->
 <div class="acto">
-<h2>Acto 15</h2>
+<h2>ACTO 15</h2>
 
-<span class="escena">Personajes en este acto: Erick y Charlotte</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Erick y Charlotte</p>
 
 <span class="escena">Escena: Un parque muy lindo lleno de caminos, árboles y una banca debajo de un árbol.</span>
-
 <p class="acotacion">Erick la espera ahí.</p>
 
-<p><span class="personaje">Erick:</span> Charlotte, llegaste. ¿Cómo has estado?</p>
+<p><span class="personaje">Erick</span> Charlotte, llegaste. ¿Cómo has estado?</p>
 
-<p><span class="personaje">Charlotte:</span> Excelente muchas gracias. (Se sienta en la banca).</p>
+<p><span class="personaje">Charlotte</span> excelente muchas gracias (Se sienta en la banca).</p>
 
-<p><span class="personaje">Erick:</span> Cuéntame un poco de lo que ha pasado estos últimos años que no te he visto.</p>
+<p><span class="personaje">Erick</span> Cuéntame un poco de lo que ha pasado estos últimos años que no te he visto.</p>
 
-<p><span class="personaje">Charlotte:</span> Bueno después de que te fuiste, mi tía Alicia me retiró del orfanato y conocí a David. Aunque me casé, todavía pienso en ti. Deberíamos vernos siempre aquí en secreto, nadie puede enterarse.</p>
+<p><span class="personaje">Charlotte</span> Bueno después de que te fuiste, mi tía Alicia me retiró del orfanato y conocí a David. Aunque me casé, todavía pienso en ti. Deberíamos vernos siempre aquí en secreto, nadie puede enterarse.</p>
 
-<p><span class="personaje">Erick:</span> Está bien me gusta la idea. (Muestra una sonrisa malévola.)</p>
+<p><span class="personaje">Erick</span> Está bien me gusta la idea. (Muestra una sonrisa malévola.)</p>
 </div>
 
 <!-- ACTO 16 -->
 <div class="acto">
-<h2>Acto 16</h2>
+<h2>ACTO 16</h2>
 
-<span class="escena">Personajes en este acto: Erick y Charlotte</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Erick y Charlotte</p>
 
 <span class="escena">Escena: El mismo patio, días después.</span>
 
-<p><span class="personaje">Erick:</span> Me alegra que hayas venido.</p>
+<p><span class="personaje">Erick</span> Me alegra que hayas venido.</p>
 
-<p><span class="personaje">Charlotte:</span> Este lugar siempre fue tranquilo, por eso me gusta.</p>
+<p><span class="personaje">Charlotte</span> Este lugar siempre fue tranquilo, por eso me gusta.</p>
 
-<p><span class="personaje">Erick:</span> ¿nos veremos aquí otra vez verdad?</p>
+<p><span class="personaje">Erick</span> ¿nos veremos aquí otra vez verdad?</p>
 
-<p><span class="personaje">Charlotte:</span> Sí siempre lo haremos.</p>
+<p><span class="personaje">Charlotte</span> Sí siempre lo haremos.</p>
+
+<p class="acotacion">(Forma)</p>
 </div>
 
 <!-- ACTO 17 -->
 <div class="acto">
-<h2>Acto 17</h2>
+<h2>ACTO 17</h2>
 
-<span class="escena">Personajes en este acto: Erick y Charlotte</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">Erick y Charlotte</p>
 
 <span class="escena">Escena: El patio, varias semanas después.</span>
 
-<p><span class="personaje">Erick:</span> A veces pienso que todo sería más fácil si pudiéramos empezar de nuevo.</p>
+<p><span class="personaje">Erick</span> A veces pienso que todo sería más fácil si pudiéramos empezar de nuevo.</p>
 
-<p><span class="personaje">Charlotte:</span> Yo también lo pienso.</p>
+<p><span class="personaje">Charlotte</span> Yo también lo pienso.</p>
 
 <p class="acotacion">(Se miran en silencio.)</p>
 
-<p><span class="personaje">Erick:</span> ¿Y si nos fuéramos lejos?</p>
+<p><span class="personaje">Erick</span> ¿Y si nos fuéramos lejos?</p>
 
-<p><span class="personaje">Charlotte:</span> Tal vez, algún día.</p>
+<p><span class="personaje">Charlotte</span> Tal vez, algún día.</p>
 </div>
 
 <!-- ACTO 18 -->
 <div class="acto">
-<h2>Acto 18</h2>
+<h2>ACTO 18</h2>
 
-<span class="escena">Personajes en este acto: David, Erick, Charlotte</span>
+<span class="escena">Personajes en este acto:</span>
+<p class="acotacion">David, Erick, Charlotte</p>
 
-<span class="escena">Escena 1: Interior de la casa de Erick.</span>
+<span class="escena">ESCENA:</span>
+<p class="acotacion">Interior de la casa de Erick. Un ambiente de lujo frío: lámparas de cristal y cuadros abstractos. David abre un cajón del velador de Charlotte y encuentra un sobre elegante. Envuelto en curiosidad extrae la carta y lee en voz alta</p>
 
-<p class="acotacion">Un ambiente de lujo frío: lámparas de cristal y cuadros abstractos. David abre un cajón del velador de Charlotte y encuentra un sobre elegante. Envuelto en curiosidad extrae la carta y lee en voz alta.</p>
+<p><span class="personaje">DAVID</span> (Leyendo) Charlotte,</p>
 
-<p><span class="personaje">David:</span> (Leyendo) Charlotte, Todo está en marcha, Charlotte. Tal como lo diseñamos, el plan es infalible. No dejo de visualizar ese instante en el que crucemos la puerta y el mundo nos pierda el rastro por completo. La decisión está tomada y ahora solo queda rezar para que salga bien. Te espero en Gare du Nord; busca el tren rojo, nuestro pasaporte a esa felicidad que tanto hemos buscado. Yo llegaré antes para vigilar que el terreno esté despejado y asegurarme de que nada nos detenga.</p>
+<p><span class="personaje">DAVID</span> Todo está en marcha, Charlotte. Tal como lo diseñamos, el plan es infalible. No dejo de visualizar ese instante en el que crucemos la puerta y el mundo nos pierda el rastro por completo. La decisión está tomada y ahora solo queda rezar para que salga bien. Te espero en Gare du Nord; busca el tren rojo, nuestro pasaporte a esa felicidad que tanto hemos buscado. Yo llegaré antes para vigilar que el terreno esté despejado y asegurarme de que nada nos detenga."</p>
 
 <p class="acotacion">(David suelta la carta con asco. Mira a su alrededor, ve las botellas de licor y, en un arranque de furia, barre con el brazo todo lo que hay sobre la mesa. El cristal estalla contra el suelo).</p>
 
-<p><span class="personaje">David:</span> (Para sí mismo, entre dientes) Te entregué mi vida, Charlotte... y me pagas con una fuga. ¡No! Esto no se queda así.</p>
+<p><span class="personaje">DAVID</span> (Para sí mismo, entre dientes) Te entregué mi vida, Charlotte... y me pagas con una fuga. ¡No! Esto no se queda así.</p>
 
-<p class="acotacion">(Abre con violencia un cajón secreto y saca una pistola. La empuña con fuerza, sale de la casa y arranca el auto.)</p>
+<p class="acotacion">(Abre con violencia un cajón secreto y saca una pistola. La empuña con fuerza, sale de la casa y arranca el auto)</p>
 
 <hr>
 
-<span class="escena">Escena 2: Estación Gare du Nord.</span>
-
+<p class="escena">ESCENA 2: ESTACIÓN GARE DU NORD</p>
 <p class="acotacion">El vapor de las locomotoras suena en todo el lugar. Erick y Charlotte están frente al Tren Rojo.</p>
 
-<p><span class="personaje">Erick:</span> (Con esperanza) Ya casi estamos, Charlotte. Sube primero, yo vigilaré que nadie nos siga. El mundo se olvidará de nosotros hoy.</p>
+<p><span class="personaje">ERICK</span> (Con esperanza) Ya casi estamos, Charlotte. Sube primero, yo vigilaré que nadie nos siga. El mundo se olvidará de nosotros hoy.</p>
 
-<p><span class="personaje">Charlotte:</span> (Dudosa, mirando hacia atrás) Erick, David no se merece esto. Me siento mal.</p>
+<p><span class="personaje">CHARLOTTE</span> (Dudosa, mirando hacia atrás) Erick, David no se merece esto. Me siento mal.</p>
 
-<p><span class="personaje">Erick:</span> (Tomándole las manos) No importa nada más. Subamos ya y seamos felices.</p>
+<p><span class="personaje">ERICK</span> (Tomándole las manos) No importa nada más. Subamos ya y seamos felices.</p>
 
 <p class="acotacion">(David aparece antes de que suban.)</p>
 
-<p><span class="personaje">David:</span> (Gritando) ¡SUÉLTALA! ¡ES MI ESPOSA!</p>
+<p><span class="personaje">DAVID</span> (Gritando) ¡SUÉLTALA! ¡ES MI ESPOSA!</p>
 
 <p class="acotacion">(David saca el arma y apunta directamente a Erick. Charlotte se interpone, temblando).</p>
 
-<p><span class="personaje">Charlotte:</span> ¡David, por Dios, detente! ¡No es lo que piensas!</p>
+<p><span class="personaje">CHARLOTTE</span> ¡David, por Dios, detente! ¡No es lo que piensas!</p>
 
-<p><span class="personaje">David:</span> (Riendo) ¿No es lo que pienso? ¡Leí la carta! ¡Leí cómo planeaban borrar su rastro y burlarse de mí en mi propia cara! (Tira la carta arrugada al suelo).</p>
+<p><span class="personaje">DAVID</span> (Riendo) ¿No es lo que pienso? ¡Leí la carta! ¡Leí cómo planeaban borrar su rastro y burlarse de mí en mi propia cara! (Tira la carta arrugada al suelo).</p>
 
-<p class="acotacion">(Erick, viendo que el dedo de David se tensa sobre el gatillo, reacciona con un instinto protector. Se lanza sobre David para desviarle el brazo.)</p>
+<p class="acotacion">Erick, viendo que el dedo de David se tensa sobre el gatillo, reacciona con un instinto protector. Se lanza sobre David para desviarle el brazo.</p>
+
+<p><span class="personaje">ERICK</span> ¡Baja eso!</p>
 
 <p class="acotacion">(Forcejean violentamente el arma. De pronto, un disparo se escucha en la estación.)</p>
 
@@ -745,43 +977,43 @@ padding:20px;
 
 <p class="acotacion">(Los tres actores se congelan. Una mancha de sangre se esparce lentamente sobre el vestido de Charlotte. David suelta el arma y empuja a Erick con fuerza. David cae de rodillas mientras Charlotte se desploma lentamente en sus brazos y Erick corre a cargar a Charlotte para intentar ayudarla, pero después de unos pasos se da cuenta de que está muerta y la suelta.)</p>
 
-<p><span class="personaje">Erick:</span> Lo siento Charlotte, todo esto fue mi culpa.</p>
+<p><span class="personaje">Erick</span> Lo siento Charlotte, todo esto fue mi culpa</p>
 
-<p><span class="personaje">Charlotte:</span> No te preocupes, ya no hay nada que hacer, no te culpes y vive en paz. (Sonríe un poco y cierra los ojos mientras su cabeza cae despacio.)</p>
+<p><span class="personaje">Charlotte</span> No te preocupes, ya no hay nada que hacer, no te culpes y vive en paz. (Sonríe un poco y cierra los ojos mientras su cabeza cae despacio.)</p>
 </div>
 
 <!-- ACTO 19 -->
 <div class="acto">
-<h2>Acto 19</h2>
+<h2>ACTO 19</h2>
 
-<span class="escena">Personajes que intervienen en este acto: David</span>
+<span class="escena">Escena 1</span>
 
-<span class="escena">Escena: Después de la estación.</span>
+<span class="escena">Personajes que intervienen en este acto</span>
+<p class="acotacion">(David)</p>
 
-<p class="acotacion">David está apuntándose con un arma en la cabeza.</p>
+<span class="escena">Escena: David está apuntándose con un arma en la cabeza.</span>
 
-<p><span class="personaje">David:</span> Mi vida ya no sirve de nada sin ti, Charlotte. No puedo con la culpa.</p>
+<p><span class="personaje">David</span> Mi vida ya no sirve de nada sin ti, Charlotte. No puedo con la culpa.</p>
 
 <p class="acotacion">(Se escucha un disparo)</p>
 </div>
 
 <!-- ACTO 20 -->
 <div class="acto">
-<h2>Acto 20 y Último</h2>
+<h2>ACTO 20 y Último</h2>
 
-<span class="escena">Personajes que intervienen en este acto: Erick</span>
+<span class="escena">Personajes que intervienen en este acto:</span>
+<p class="acotacion">Erick</p>
 
-<span class="escena">Escena: Granja.</span>
+<p class="acotacion">(Erick está trabajando en la granja solo, alza la cabeza y mira al horizonte.)</p>
 
-<p class="acotacion">Erick está trabajando en la granja solo, alza la cabeza y mira al horizonte.</p>
-
-<p><span class="personaje">Erick:</span> Nunca creí que el amor tendría un precio tan alto.</p>
+<p><span class="personaje">Erick</span> Nunca creí que el amor tendría un precio tan alto.</p>
 </div>
 
 </section>
 
 <footer>
-<p>© 2026 Obra de teatro — El Alto Precio del Amor</p>
+<p>© 2026 Obra de teatro — El Alto Precio del Amor| Web creada por José Antonio Zurita</p>
 </footer>
 
 </body>
